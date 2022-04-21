@@ -6,17 +6,17 @@
 #    By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 19:29:18 by ytakii            #+#    #+#              #
-#    Updated: 2022/03/30 16:32:13 by ytakii           ###   ########.fr        #
+#    Updated: 2022/04/11 16:40:06 by ytakii           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    = libftprintf.a
 
-CC  = cc
+CC  = gcc
 
 CFLAGS  = -Wall -Wextra -Werror
 
-SRCS    = 
+SRCS    = ft_printf.c ft_printf_utils.c 
 
 OBJS    = $(SRCS:.c=.o)
 	AR  = ar rcs
