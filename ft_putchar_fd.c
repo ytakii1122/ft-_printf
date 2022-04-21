@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:34:13 by ytakii            #+#    #+#             */
-/*   Updated: 2022/02/02 13:51:27 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/04/21 22:00:22 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,9 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
 }
+
+/*
+int main(void)
+{
+	ft_putchar_fd('a', 1);
+}*/
