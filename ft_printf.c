@@ -6,24 +6,32 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/05/11 16:46:24 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/05/11 17:11:56 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include  <stdarg.h> 
-/*
-	//flags_check
+
+int check(char *input, va_list arg)
+{
+	//flags_check - or 0
 	//width_check
-	//precision_check
+		//size_t lengh = 0; 
+		//lengh = ft_strlen(arg)
+		//if(lengh  < // width)
+			//putchar_fd(fd," ", width-lengh);
+		//else
+		//	nothing
+	//precision_:wqicheck
 	//modifier_check
 	//type_check
 	//
 	//
 	//
 	//char int -> ''> "" need to change
-*/
+}
 
 int	ft_printf(const char *fmt, ...)
 {
@@ -47,12 +55,6 @@ int	ft_printf(const char *fmt, ...)
 	return (return_size);//word count include '\n'
 }
 
-int main (void)
-{
-	ft_printf("%hoge", '1');
-	return (0);
-}
-
 int output_char(char *input , va_list arg)
 {
 	size_t	i;
@@ -63,7 +65,6 @@ int output_char(char *input , va_list arg)
 	{
 	 	if (input[i] == '%')
 			check(input, arg);//flag etc... check
-
 		else
 			ft_putchar_fd(input[i]);
 		i++;
@@ -71,3 +72,11 @@ int output_char(char *input , va_list arg)
 	}
 	return (count);// word count
 }
+
+
+int main (void)
+{
+	ft_printf("hoge", '1');
+	return (0);
+}
+

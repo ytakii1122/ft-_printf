@@ -3,6 +3,6 @@
 
 int main(void)
 {
-	printf("aaa\0");
+	printf("%5d",-1);
 	return (0);
 }
