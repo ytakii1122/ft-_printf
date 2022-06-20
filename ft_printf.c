@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/05/11 17:11:56 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/06/20 14:11:44 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 #include "libft.h"
 #include  <stdarg.h> 
 
-int check(char *input, va_list arg)
+
+int output_char(char input , va_list arg);
+int check(char input, va_list arg)
 {
+	printf("check");
+	return(2);
+}
 	//flags_check - or 0
 	//width_check
 		//size_t lengh = 0; 
@@ -31,52 +36,64 @@ int check(char *input, va_list arg)
 	//
 	//
 	//char int -> ''> "" need to change
-}
 
 int	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
-	//char	c;
-	//size_t	i;
-	int	return_size;
+	size_t	i;
+	int	return_len;
 
-	//i = 0;
+	i = 0;
+	return_len = 0;
+	if (fmt == NULL)
+		return(-1);
 	va_start(ap, fmt);
-	//while (fmt[i])
-	//{
-		//ft_putstr_fd((char*) fmt, 1);
-		//c = (char)va_arg(ap, int);
-		return_size = (int)va_arg(ap, int);
-		//printf("%c",i);
-
-		ft_putchar_fd(return_size, 1);
-	//}
+	//output_char(fmt, ap);
+	while (fmt[i] != '\0')
+	{
+		if(fmt[i] == '%')
+		{
+			i++;
+			check(fmt[i], ap);//flag etc... check
+			return_len++;
+		}
+		else
+			//ft_putchar_fd(fmt[i], '1');
+			write (1, &fmt[i], 1);
+		i++;
+		return_len++;
+	}
 	va_end(ap);
-	return (return_size);//word count include '\n'
+	return (return_len);//word count include '\n'
 }
-
+/*
 int output_char(char *input , va_list arg)
 {
 	size_t	i;
-	size_t	count
+	size_t	count;
 
 	i = 0;
 	while (input[i] != '\0')
 	{
 	 	if (input[i] == '%')
-			check(input, arg);//flag etc... check
+		{
+			i++;
+			check(input[i], arg);//flag etc... check
+		}
 		else
-			ft_putchar_fd(input[i]);
+			ft_putchar_fd(input[i], '1');
 		i++;
 		count++;
 	}
 	return (count);// word count
 }
 
-
+*/
 int main (void)
 {
-	ft_printf("hoge", '1');
+	int	a;
+	a = ft_printf("hoge\n");
+	printf("%d", a);
 	return (0);
 }
 

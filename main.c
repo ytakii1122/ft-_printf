@@ -3,6 +3,9 @@
 
 int main(void)
 {
-	printf("%5d",-1);
+	int a;
+	a = 0;
+	a = printf("abc\0defg\n");
+	printf("%d", a);
 	return (0);
 }
