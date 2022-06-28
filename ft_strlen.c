@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 17:06:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/06/27 23:45:17 by ytakii           ###   ########.fr       */
+/*   Created: 2022/01/17 11:46:39 by ytakii            #+#    #+#             */
+/*   Updated: 2022/02/22 13:14:57 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef FT_PRINTF
-#define FT_PRINTF
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-//#include <assert.h>
 #include "libft.h"
 
+size_t	ft_strlen(const	char *str)
+{
+	size_t	count;
 
-int	ft_printf(const char *fmt, ...);
+	count = 0;
+	while (*str != '\0')
+	{
+		str++;
+		count++;
+	}
+	return (count);
+}
+/*int	main(void)
+{
+	char *str;
 
-#endif
+	str = "helloll";
+	printf("%d\n",ft_strlen(str));
+	printf("%lu\n",strlen(str));
+		
+}
+*/
