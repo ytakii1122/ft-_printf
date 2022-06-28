@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/06/28 12:50:04 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/06/28 16:27:12 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include  <stdarg.h> 
 
+int ft_x(unsigned int num, const char input);//have to check return value
 int sign_behavior(char input, va_list ap)
 {
 	size_t	len;//ssize_t??
@@ -22,6 +23,10 @@ int sign_behavior(char input, va_list ap)
 	char	*s;
 	//s = NULL;
 	int	d;
+	unsigned int	u;//unsigned long long
+	char	*str;
+
+
 
 	len = 0;
 	if (input == 'c')
@@ -40,18 +45,32 @@ int sign_behavior(char input, va_list ap)
 	}
 	//else if (input == 'p')
 	
-	if (input == 'd' || input == 'i')
+	else if (input == 'd' || input == 'i')
 	{
 		//int	d;
 		d = (int)va_arg(ap, int);
 		ft_putnbr_fd(d , 1);
 		len++;
 	}
-	/*
+	
 	else if (input == 'u')
-		//(int)va_arg(ap, unsigned int); 
-	else if (input == 'x')
-		//(int)va_arg(ap, int);
+	{
+	//	unsigned int	u;//unsigned long long
+	//	char	*str;
+
+		u =	(int)va_arg(ap, unsigned int);
+		str = ft_itoa(u);
+		ft_putstr_fd(str, 1);
+		len = ft_strlen(str);
+		free(str);
+	}
+	else if (input == 'x' || input == 'X')
+	{
+		unsigned int	x;	
+		x = (int)va_arg(ap, unsigned int);
+		len = ft_x(x, input);
+	}
+	/*
 	else if (input == 'X')
 		//(int)va_arg(ap, int);
 	*/
@@ -62,6 +81,34 @@ int sign_behavior(char input, va_list ap)
 	}
 	return(len);
 }
+
+
+int ft_x(unsigned int num, const char input)
+{
+	int len;
+
+	len = 0;
+	if (num >= 16)
+	{
+		ft_x(num / 16, input);
+		ft_x(num % 16, input);
+	}
+	else
+	{
+		if(num < 10)
+			ft_putchar_fd(num + '0', 1);
+		else //11-15
+		{
+			if ( input == 'x')
+				ft_putchar_fd(num -10 + 'a', 1);
+			else
+				ft_putchar_fd(num -10 + 'A', 1);
+			
+		}
+	}
+	return (len);
+}
+
 	//flags_check - or 0
 	//width_check
 		//size_t lengh = 0; 
@@ -136,13 +183,15 @@ int output_char(char *input , va_list arg)
 }
 
 */
-
+/*
 int main (void)
 {
-/*	int	a;
+
+	int	a;
 	a = ft_printf("hoge\n",1);
 	printf("%d", a);
-*/
+
+
 	int	b;
 	b = ft_printf("%c\n",'a');
 	printf("%d\n", b);
@@ -175,7 +224,24 @@ int main (void)
 	l = ft_printf("%%\n");
 	printf("%d\n",l);
 
+	int	u;
+	u = printf("%u\n", 1234);
+	printf("%d\n", u);
+
+	int	t;
+	t = ft_printf("%u\n", 1234);
+	printf("%d\n", t);
+
+
+	int	x;
+	x = printf("%x\n", 2744);
+	printf("%d\n", x);
+
+	int	w;
+	w = ft_printf("%x\n", 2744);
+	printf("%d\n", w);
+
 	return (0);
 
 }
-
+*/
