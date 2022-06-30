@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/06/30 11:46:21 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/06/30 16:03:42 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include  <stdarg.h> 
 
 int ft_x(unsigned int num, const char input);//have to check return value
+int ft_p(unsigned long long num);
+int ft_len(unsigned num);
+
 int sign_behavior(char input, va_list ap)
 {
 	size_t	len;//ssize_t??
@@ -25,8 +28,9 @@ int sign_behavior(char input, va_list ap)
 	int	d;
 	unsigned int	u;//unsigned long long
 	char	*str;
-
-
+	unsigned int	p;
+	unsigned int	x;
+	char	*str_d;
 
 	len = 0;
 	if (input == 'c')
@@ -52,14 +56,23 @@ int sign_behavior(char input, va_list ap)
 		}
 		
 	}
-	//else if (input == 'p')
-	
+	else if (input == 'p')
+	{
+		write(1,"0x",2);
+		len = 2;
+		p = (int)va_arg(ap, unsigned int);
+		len += ft_p(p);
+	}
 	else if (input == 'd' || input == 'i')
 	{
 		//int	d;
+		//char	*str_d;
 		d = (int)va_arg(ap, int);
-		ft_putnbr_fd(d , 1);
-		len++;
+		str_d = ft_itoa(d);
+		ft_putstr_fd(str_d, 1);
+		len = ft_strlen(str_d);
+		free(str_d);
+		//ft_putnbr_fd(d , 1);
 	}
 	
 	else if (input == 'u')
@@ -75,14 +88,11 @@ int sign_behavior(char input, va_list ap)
 	}
 	else if (input == 'x' || input == 'X')
 	{
-		unsigned int	x;	
+		//unsigned int	x;	
 		x = (int)va_arg(ap, unsigned int);
-		len = ft_x(x, input);
+		ft_x(x, input);
+		len = ft_len(x);
 	}
-	/*
-	else if (input == 'X')
-		//(int)va_arg(ap, int);
-	*/
 	else if (input == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -105,34 +115,65 @@ int ft_x(unsigned int num, const char input)
 	else
 	{
 		if(num < 10)
+		{
 			ft_putchar_fd(num + '0', 1);
+			len++;
+			//printf("1:%d\n",len);
+		}
 		else //11-15
 		{
-			if ( input == 'x')
-				ft_putchar_fd(num -10 + 'a', 1);
-			else
+			if ( input == 'X')
+			{
 				ft_putchar_fd(num -10 + 'A', 1);
-			
+				len++;
+				//printf("2:%d\n",len);
+			}
+			else
+			{
+				ft_putchar_fd(num -10 + 'a', 1);
+				len++;
+				//printf("3: %d\n",len);
+			}
 		}
+	}
+	//printf("4:%d\n",len);
+	return (len);
+}
+
+int ft_p(unsigned long long num)
+{
+	int len;
+
+	len = 0;
+	if (num >= 16)
+	{
+		ft_p(num / 16);
+		ft_p(num % 16);
+	}
+	else
+	{
+		if(num < 10)
+			ft_putchar_fd(num + '0', 1);
+		else //11-15
+			ft_putchar_fd(num -10 + 'a', 1);
 	}
 	return (len);
 }
 
-	//flags_check - or 0
-	//width_check
-		//size_t lengh = 0; 
-		//lengh = ft_strlen(arg)
-		//if(lengh  < // width)
-			//putchar_fd(fd," ", width-lengh);
-		//else
-		//	nothing
-	//precision_:wqicheck
-	//modifier_check
-	//type_ciheck
-	//
-	//
-	//
-	//char int -> ''> "" need to change
+int ft_len(unsigned num)
+{
+	size_t count;
+
+	count = 0;
+	if(num == 0)
+		count++;
+	while (num != 0)
+	{
+		count++;
+		num = num / 16;
+	}
+	return (count);
+}
 
 int	ft_printf(const char *fmt, ...)
 {
