@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/06/30 20:49:21 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/06/30 21:49:52 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "libft.h"
 #include  <stdarg.h> 
 
-int ft_x(unsigned int num, const char input);//have to check return value
-int ft_p(unsigned long long num);
-int ft_len(unsigned long long num);
+//int ft_x(unsigned long long num, const char input);//have to check return value
+//int ft_p(unsigned long long num);
+//int ft_len(unsigned long long num);
 char	*ft_itoa_u(unsigned int n);
 	
 int sign_behavior(char input, va_list ap)
@@ -27,8 +27,8 @@ int sign_behavior(char input, va_list ap)
 	int	d;
 	unsigned int	u;//unsigned long long
 	char	*str;
-	unsigned long long p;
-	unsigned int	x;
+	//unsigned long long p;
+	//unsigned int	x;
 	char	*str_d;
 
 	len = 0;
@@ -57,11 +57,12 @@ int sign_behavior(char input, va_list ap)
 	}
 	else if (input == 'p')
 	{
-		write(1,"0x",2);
+		len = put_unsigned(input, ap);
+	/*	write(1,"0x",2);
 		len = 2;
 		p = (unsigned long long)va_arg(ap, unsigned long long);
-		ft_p(p);
-		len += ft_len(p);
+		ft_x(p, input);
+		len += ft_len(p);*/
 	}
 	else if (input == 'd' || input == 'i')
 	{
@@ -77,8 +78,8 @@ int sign_behavior(char input, va_list ap)
 	
 	else if (input == 'u')
 	{
-	//	unsigned int	u;//unsigned long long
-	//	char	*str;
+		//unsigned int	u;
+		//char	*str;
 
 		u =	(unsigned int)va_arg(ap, unsigned int);
 		str = ft_itoa_u(u);
@@ -88,10 +89,13 @@ int sign_behavior(char input, va_list ap)
 	}
 	else if (input == 'x' || input == 'X')
 	{
-		//unsigned int	x;	
+		len = put_unsigned(input, ap);
+		/*
+		unsigned int	x;	
 		x = (int)va_arg(ap, unsigned int);
 		ft_x(x, input);
 		len = ft_len(x);
+		*/
 	}
 	else if (input == '%')
 	{
@@ -102,7 +106,7 @@ int sign_behavior(char input, va_list ap)
 }
 
 
-int ft_x(unsigned int num, const char input)
+int ft_x(unsigned long long num, const char input)
 {
 	if (num >= 16)
 	{
@@ -123,7 +127,7 @@ int ft_x(unsigned int num, const char input)
 	}
 	return (0);
 }
-
+/*
 int ft_p(unsigned long long  num)
 {
 	if (num >= 16)
@@ -140,7 +144,7 @@ int ft_p(unsigned long long  num)
 	}
 	return (0);
 }
-
+*/
 int ft_len(unsigned long long num)
 {
 	size_t count;
