@@ -57,30 +57,35 @@ int main (void)
 	l = ft_printf("%%\n");
 	printf("%d\n",l);
 */
-	int	u;
-	u = printf("%u\n", 105759274699328);
-	printf("%d\n", u);
-/*
+//	int	u;
+//	u = printf("%u\n",(unsigned int)4294967295);
+
+//	printf("%d\n", u);
+
+	//"%u", (unsigned int)2147483648
+
 	int	t;
-	t = ft_printf("%u\n", 105759274699328);
-	printf("%d\n", t);
+	t = ft_printf("%u\n",(unsigned int)4294967295);
+//	printf("%d\n", t);
 
 
+/*
 	int	x;
-	x = printf("%X\n", 0);
+	x = printf("%lX\n", 10004294967295);
 	printf("%d\n", x);
 
+
 	int	w;
-	w = ft_printf("%X\n", 0);
+	w = ft_printf("%X\n", 10004294967295);
 	printf("%d\n", w);
 
 	int	p; 
-	p = printf("%p\n", (void *)-1234567890);
+	p = printf("%p\n",(void *) 10004294967295);
 	//printf("%x\n", (void *)0);
 	printf("%d\n", p);
 
 	int	q;
-	q = ft_printf("%p\n", (void *)-1234567890);
+	q = ft_printf("%p\n", (void *)10004294967295);
 	printf("%d\n", q);
 
 */
