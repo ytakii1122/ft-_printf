@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/06/28 16:27:12 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/06/30 11:46:21 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,17 @@ int sign_behavior(char input, va_list ap)
 	{
 		//char	*s;
 		s = (char *)va_arg(ap, char *);
-		ft_putstr_fd(s , 1);
-		len = ft_strlen(s);
+		if (s == NULL)
+		{
+			write(1,"(null)",6);
+			len = 6;
+		}
+		else
+		{
+			ft_putstr_fd(s , 1);
+			len = ft_strlen(s);
+		}
+		
 	}
 	//else if (input == 'p')
 	
@@ -129,7 +138,7 @@ int	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
 	size_t	i;
-	int	return_len;
+	size_t	return_len;
 
 	i = 0;
 	return_len = 0;
@@ -142,8 +151,8 @@ int	ft_printf(const char *fmt, ...)
 		if(fmt[i] == '%')
 		{
 			i++;
-			return_len ++;
-			return_len = sign_behavior(fmt[i], ap);//flag etc... check
+			//return_len ++;
+			return_len += sign_behavior(fmt[i], ap);//flag etc... check
 			//return_len++;
 			//printf("%d\n", return_len);
 		}

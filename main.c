@@ -15,8 +15,12 @@ int main (void)
 {
 /*
 	int	a;
-	a = ft_printf("hoge\n",1);
-	printf("%d", a);
+	a = ft_printf("hoge:%d\n",1);
+	printf("%d\n", a);
+
+	int	b;
+	b = printf("hoge:%d\n",1);
+	printf("%d\n", b);
 
 
 	int	b;
@@ -26,15 +30,17 @@ int main (void)
 	int	c;
 	c  = printf("%c\n",'a');
 	printf("%d\n", c);
-
+*/
 	int	d;
-	d  = printf("%s\n","abcdefg");
+	d = 0;
+	d  = printf("%s\n", NULL);
 	printf("%d\n", d);
 	
 	int	e;
-	e  = ft_printf("%s\n","abcdefg");
+	e = 0;
+	e  = ft_printf("%s\n", NULL);
 	printf("%d\n", e);
-
+/*
 	int	f;
 	f  = printf("%d\n", 1);
 	printf("%d\n", f);
@@ -59,7 +65,7 @@ int main (void)
 	t = ft_printf("%u\n", 1234);
 	printf("%d\n", t);
 */
-
+/*
 	int	x;
 	x = printf("%X\n", 2744);
 	printf("%d\n", x);
@@ -69,4 +75,5 @@ int main (void)
 	printf("%d\n", w);
 
 	return (0);
+	*/
 }
