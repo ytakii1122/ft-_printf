@@ -6,7 +6,7 @@
 #    By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 19:29:18 by ytakii            #+#    #+#              #
-#    Updated: 2022/06/30 21:43:08 by ytakii           ###   ########.fr        #
+#    Updated: 2022/07/02 22:21:35 by ytakii           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC  = gcc
 
 CFLAGS  = -Wall -Wextra -Werror
 
-SRCS    = ft_printf.c ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c ft_itoa.c ft_strlen.c ft_itoa_u.c  put_unsigned.c
+SRCS    = ft_printf.c ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c ft_itoa.c ft_strlen.c ft_itoa_u.c  put_unsigned.c put_int.c
 
 OBJS    = $(SRCS:.c=.o)
 	AR  = ar rcs

@@ -6,13 +6,11 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:31:11 by ytakii            #+#    #+#             */
-/*   Updated: 2022/06/30 20:23:43 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/02 23:34:33 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
-
 
 int	ft_num_count_u(unsigned int c)
 {
