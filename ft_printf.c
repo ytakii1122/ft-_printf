@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/03 00:01:56 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/03 23:14:53 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,9 @@ int	sign_behavior(char	input, va_list	ap)
 
 	len = 0;
 	if (input == 'c')
-	{
-		len = put_str(input, ap);
-/*		//char	c;
-		c = (char)va_arg(ap, int);
-		ft_putchar_fd(c, 1);
-		len++;*/
-	}
+		len = put_c(ap);
 	else if (input == 's')
-	{
-		len = put_str(input, ap);
-		//char	*s;
-/*		s = (char *)va_arg(ap, char *);
-		if (s == NULL)
-		{
-			write(1, "(null)", 6);
-			len = 6;
-		}
-		else
-		{
-			ft_putstr_fd(s, 1);
-			len = ft_strlen(s);
-		}*/		
-	}
+		len = put_s(ap);
 	else if (input == 'p')
 		len = put_unsigned_p(input, ap);
 	else if (input == 'd' || input == 'i')
@@ -83,5 +63,5 @@ int	ft_printf(const char	*fmt, ...)
 		i++;
 	}
 	va_end(ap);
-	return (return_len);//word count include '\n'
+	return (return_len);
 }
