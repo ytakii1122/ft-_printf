@@ -1,43 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft_putnbr_fd.c                                  :+:      :+:    :+:   */
+/*   put.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 12:36:23 by ytakii            #+#    #+#             */
-/*   Updated: 2022/02/22 13:15:55 by ytakii           ###   ########.fr       */
+/*   Created: 2022/07/05 22:15:52 by ytakii            #+#    #+#             */
+/*   Updated: 2022/07/05 22:22:38 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	put_c(va_list	ap)
 {
-	unsigned int	num;
+	size_t	len;
+	char	list;
 
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		num = n * -1;
-	}
-	else
-		num = n;
-	if (10 <= num)
-	{
-		ft_putnbr_fd(num / 10, fd);
-		ft_putnbr_fd(num % 10, fd);
-	}
-	else
-		ft_putchar_fd((num + '0'), fd);
+	len = 0;
+	list = (char)va_arg(ap, int);
+	ft_putchar_fd(list, 1);
+	len++;
+	return (len);
 }
-/*
-int	main(void)
-{
-int i = (-2147483647 -1);
-char buff[0xF0];
-
-ft_putnbr_fd(i, 2);
-write(2, "", 1);
-}
-*/

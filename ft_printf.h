@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:06:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/03 23:15:36 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/05 23:05:53 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@
 
 int		ft_printf(const char *fmt, ...);
 char	*ft_itoa_u(unsigned int n);
+int		put_d(va_list	ap);
 int		put_c(va_list	ap);
+int		put_u(va_list	ap);
 int		put_s(va_list	ap);
-int		put_unsigned_x(char input, va_list	ap);
-int		put_unsigned_p(char input, va_list	ap);
+int		put_x(char input, va_list	ap);
+int		put_p(va_list	ap);
 int		ft_decimal_change_x(unsigned int num, const char input);
-int		ft_decimal_change_p(unsigned long long num, const char input);
+int		ft_decimal_change_p(unsigned long long num);
 int		ft_len(unsigned long long num);
+int		print_int_u(char *n);
+int		print_int_d(char *n);
 char	*ft_itoa_u(unsigned int n);
-int		put_int(const char	input, va_list ap);
-
 #endif

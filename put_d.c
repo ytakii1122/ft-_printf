@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_int.c                                          :+:      :+:    :+:   */
+/*   put_d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 21:06:50 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/03 23:06:55 by ytakii           ###   ########.fr       */
+/*   Created: 2022/07/04 17:22:07 by ytakii            #+#    #+#             */
+/*   Updated: 2022/07/05 23:00:11 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	put_int(const char	input, va_list ap)
+int	put_d(va_list ap)
 {
-	int				list_d;
-	unsigned int	list_u;
-	int				len;
-	char			*change_char;
+	int		list_d;
+	int		len;
+	char	*change_char;
 
 	len = 0;
-	if (input == 'd' || input == 'i')
-	{
-		list_d = (int)va_arg(ap, int);
-		change_char = ft_itoa(list_d);
-	}
-	if (input == 'u')
-	{
-		list_u = (unsigned int)va_arg(ap, unsigned int);
-		change_char = ft_itoa_u(list_u);
-	}
-	ft_putstr_fd(change_char, 1);
-	len = ft_strlen(change_char);
-	free(change_char);
+	list_d = (int)va_arg(ap, int);
+	change_char = ft_itoa(list_d);
+	if (change_char == NULL)
+		return (-1);
+	len = print_int_d(change_char);
+	return (len);
+}
+
+int	print_int_d(char *n)
+{
+	int	len;
+
+	ft_putstr_fd(n, 1);
+	len = ft_strlen(n);
+	free(n);
 	return (len);
 }

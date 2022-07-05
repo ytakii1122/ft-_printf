@@ -6,7 +6,7 @@
 #    By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 19:29:18 by ytakii            #+#    #+#              #
-#    Updated: 2022/07/03 23:20:44 by ytakii           ###   ########.fr        #
+#    Updated: 2022/07/05 22:48:53 by ytakii           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ CC  = gcc
 
 CFLAGS  = -Wall -Wextra -Werror
 
-SRCS    = ft_printf.c ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c ft_itoa.c ft_strlen.c ft_itoa_u.c\
-		  put_int.c put_str.c put_x.c put_p.c
+SRCS    = ft_printf.c ft_putstr_fd.c ft_putchar_fd.c ft_itoa.c ft_strlen.c ft_itoa_u.c\
+		  put_d.c put_s.c put_x.c put_p.c put_u.c put_c.c
 
 OBJS    = $(SRCS:.c=.o)
 	AR  = ar rcs
@@ -38,9 +38,5 @@ fclean: clean
 	    $(RM) $(NAME)
 
 re: fclean all
-
-test: re all
-	    $(CC) $(CFLAGS) $(NAME)
-		    ./a.out
 
 .PHONY: all, clean, fclean, re, test

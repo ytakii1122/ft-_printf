@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_unsigned.c                                     :+:      :+:    :+:   */
+/*   put_u.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 20:45:51 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/05 23:05:08 by ytakii           ###   ########.fr       */
+/*   Created: 2022/07/04 17:22:36 by ytakii            #+#    #+#             */
+/*   Updated: 2022/07/05 23:05:24 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	put_p(va_list ap)
+int	put_u(va_list ap)
 {
-	size_t				len;
-	unsigned long long	list;
+	unsigned int	list_u;
+	int				len;
+	char			*change_char;
 
 	len = 0;
-	write(1, "0x", 2);
-	len = 2;
-	list = (unsigned long long)va_arg(ap, unsigned long long);
-	ft_decimal_change_p(list);
-	len += ft_len(list);
+	list_u = (unsigned int)va_arg(ap, unsigned int);
+	change_char = ft_itoa_u(list_u);
+	if (change_char == NULL)
+		return (-1);
+	len = print_int_u(change_char);
 	return (len);
 }
 
-int	ft_decimal_change_p(unsigned long long num)
-{
-	if (num >= 16)
-	{
-		ft_decimal_change_p(num / 16);
-		ft_decimal_change_p(num % 16);
-	}
-	else
-	{
-		if (num < 10)
-			ft_putchar_fd(num + '0', 1);
-		else
-			ft_putchar_fd(num - 10 + 'a', 1);
-	}
-	return (0);
+int	print_int_u(char *n)
+{	
+	int	len;
+
+	ft_putstr_fd(n, 1);
+	len = ft_strlen(n);
+	free(n);
+	return (len);
 }

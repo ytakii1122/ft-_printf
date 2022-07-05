@@ -6,13 +6,13 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 20:45:51 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/03 23:18:03 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/05 22:54:47 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	put_unsigned_x(const char input, va_list ap)
+int	put_x(const char input, va_list ap)
 {
 	size_t			len;
 	unsigned int	list;

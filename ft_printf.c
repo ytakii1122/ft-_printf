@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/03 23:14:53 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/05 23:03:46 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	sign_behavior(char	input, va_list	ap)
 	else if (input == 's')
 		len = put_s(ap);
 	else if (input == 'p')
-		len = put_unsigned_p(input, ap);
+		len = put_p(ap);
 	else if (input == 'd' || input == 'i')
-		len = put_int(input, ap);
+		len = put_d(ap);
 	else if (input == 'u')
-		len = put_int(input, ap);
+		len = put_u(ap);
 	else if (input == 'x' || input == 'X')
-		len = put_unsigned_x(input, ap);
+		len = put_x(input, ap);
 	else if (input == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -57,7 +57,7 @@ int	ft_printf(const char	*fmt, ...)
 		}
 		else
 		{
-			write (1, &fmt[i], 1);
+			ft_putchar_fd(fmt[i], 1);
 			return_len++;
 		}
 		i++;
