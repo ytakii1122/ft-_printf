@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:22:36 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/12 11:01:51 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/12 15:48:52 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	put_u(va_list ap)
 {
 	unsigned int	list_u;
-	int				len;
+	size_t				len;
 	char			*change_char;
 
 	len = 0;
@@ -30,7 +30,7 @@ int	put_u(va_list ap)
 
 int	print_int_u(char *n)
 {	
-	int	len;
+	size_t	len;
 
 	ft_putstr_fd(n, 1);
 	len = ft_strlen(n);
