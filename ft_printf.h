@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:06:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/05 23:05:53 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/12 11:03:45 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include "libft.h"
+# include <limits.h>
 
 int		ft_printf(const char *fmt, ...);
 char	*ft_itoa_u(unsigned int n);

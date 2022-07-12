@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/05 23:03:46 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/12 11:25:08 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ int	ft_printf(const char	*fmt, ...)
 {
 	va_list	ap;
 	size_t	i;
-	size_t	return_len;
+	int	return_len;
+	int	ret;
 
 	i = 0;
 	return_len = 0;
+	ret = 0;
 	if (fmt == NULL)
 		return (-1);
 	va_start(ap, fmt);
@@ -53,7 +55,10 @@ int	ft_printf(const char	*fmt, ...)
 		if (fmt[i] == '%')
 		{
 			i++;
-			return_len += sign_behavior(fmt[i], ap);
+			ret = sign_behavior(fmt[i], ap);
+			if (ret < 0 || return_len >= INT_MAX - ret)
+				return (-1);
+			return_len += ret;
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:31:11 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/02 23:34:33 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/12 11:10:37 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_num_count_u(unsigned int c)
 	}
 	return (count);
 }
-
+/*
 int	ft_nega_u(unsigned int	n)
 {
 	if (n < 0)
@@ -34,15 +34,16 @@ int	ft_nega_u(unsigned int	n)
 	else
 		return (n);
 }
-
+*/
 char	*ft_itoa_u(unsigned int n)
 {
 	char			*str;
-	unsigned int	num;
+	//unsigned int	num;
 	int				num_count;
 
-	num = ft_nega_u(n);
-	num_count = ft_num_count_u(num);
+	//num = ft_nega_u(n);
+	//num_count = ft_num_count_u(num);
+	num_count = ft_num_count_u(n);
 	if (n < 0)
 		num_count++;
 	str = (char *)malloc(sizeof(char) * (num_count + 1));
@@ -53,11 +54,11 @@ char	*ft_itoa_u(unsigned int n)
 	if (n == 0)
 		str[0] = '0';
 	str[num_count] = '\0';
-	while (0 < num)
+	while (0 < n)
 	{
 		num_count--;
-		str[num_count] = num % 10 + '0';
-		num = num / 10;
+		str[num_count] = n % 10 + '0';
+		n = n / 10;
 	}
 	return (str);
 }
