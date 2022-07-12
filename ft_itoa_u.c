@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:31:11 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/12 11:10:37 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/12 15:29:37 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,12 @@ int	ft_num_count_u(unsigned int c)
 	}
 	return (count);
 }
-/*
-int	ft_nega_u(unsigned int	n)
-{
-	if (n < 0)
-		return (-1 * n);
-	else
-		return (n);
-}
-*/
+
 char	*ft_itoa_u(unsigned int n)
 {
 	char			*str;
-	//unsigned int	num;
 	int				num_count;
 
-	//num = ft_nega_u(n);
-	//num_count = ft_num_count_u(num);
 	num_count = ft_num_count_u(n);
 	if (n < 0)
 		num_count++;
@@ -62,11 +51,3 @@ char	*ft_itoa_u(unsigned int n)
 	}
 	return (str);
 }
-/*
-int main(void)
-{
-	int a = -11111;
-
-	printf("%s\n", ft_itoa(a));
-	return (0);
-}*/

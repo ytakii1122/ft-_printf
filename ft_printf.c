@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:11:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/12 11:25:08 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/12 15:26:06 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,12 @@ int	ft_printf(const char	*fmt, ...)
 {
 	va_list	ap;
 	size_t	i;
-	int	return_len;
-	int	ret;
+	int		return_len;
+	int		ret;
 
 	i = 0;
 	return_len = 0;
 	ret = 0;
-	if (fmt == NULL)
-		return (-1);
 	va_start(ap, fmt);
 	while (fmt[i] != '\0')
 	{
@@ -61,10 +59,7 @@ int	ft_printf(const char	*fmt, ...)
 			return_len += ret;
 		}
 		else
-		{
-			ft_putchar_fd(fmt[i], 1);
-			return_len++;
-		}
+			return_len += write(1, &fmt[i], 1);
 		i++;
 	}
 	va_end(ap);

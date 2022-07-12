@@ -6,7 +6,7 @@
 /*   By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:22:07 by ytakii            #+#    #+#             */
-/*   Updated: 2022/07/12 10:59:48 by ytakii           ###   ########.fr       */
+/*   Updated: 2022/07/12 15:27:54 by ytakii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	put_d(va_list ap)
 {
 	int		list_d;
-	ssize_t		len;
+	ssize_t	len;
 	char	*change_char;
 
 	len = 0;
