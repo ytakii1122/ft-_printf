@@ -6,13 +6,13 @@
 #    By: ytakii </var/mail/ytakii>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 19:29:18 by ytakii            #+#    #+#              #
-#    Updated: 2022/07/05 22:48:53 by ytakii           ###   ########.fr        #
+#    Updated: 2022/07/12 11:45:29 by ytakii           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    = libftprintf.a
 
-CC  = gcc
+CC  = cc
 
 CFLAGS  = -Wall -Wextra -Werror
 
@@ -39,4 +39,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re, test
+.PHONY: all, clean, fclean, re
